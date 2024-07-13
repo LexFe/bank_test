@@ -7,8 +7,6 @@ import 'package:login/screen/condition/bloc/condition_bloc.dart';
 import 'package:login/screen/condition/condition.dart';
 import 'package:login/screen/crud/bloc/crud_bloc.dart';
 import 'package:login/screen/crud/crud.dart';
-import 'package:login/screen/curd_detail/bloc/detail_bloc.dart';
-import 'package:login/screen/curd_detail/crud_detail.dart';
 import 'package:login/screen/home/bloc/home_bloc.dart';
 import 'package:login/screen/home/home.dart';
 import 'package:login/screen/login/bloc/login_bloc.dart';
@@ -69,13 +67,6 @@ class AppPage {
         page: const CRUDPage(),
         bloc: BlocProvider(
           create: (_) => CrudBloc(),
-        ),
-      ),
-      PageEntity(
-        route: AppRoutes.DETAIL,
-        page: const CRUDDetailPage(),
-        bloc: BlocProvider(
-          create: (_) => DetailBloc(),
         ),
       ),
     ];

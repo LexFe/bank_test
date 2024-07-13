@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
@@ -14,7 +13,6 @@ class RegisterController {
     final state = BlocProvider.of<RegisterBloc>(context).state;
     String name = state.name;
     String surname = state.surname;
-    String province = state.province;
     String username = state.username;
     int? phone = int.tryParse(state.phone);
     String password = state.password;

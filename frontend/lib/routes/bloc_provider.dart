@@ -2,7 +2,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:login/screen/OTP/bloc/otp_bloc.dart';
 import 'package:login/screen/condition/bloc/condition_bloc.dart';
 import 'package:login/screen/crud/bloc/crud_bloc.dart';
-import 'package:login/screen/curd_detail/bloc/detail_bloc.dart';
 import 'package:login/screen/home/bloc/home_bloc.dart';
 import 'package:login/screen/login/bloc/login_bloc.dart';
 import 'package:login/screen/main_home/bloc/main_bloc.dart';
@@ -24,7 +23,8 @@ class AppBlocProvider {
         BlocProvider(
           create: (context) => HomeBloc(),
         ),
-        BlocProvider(create: (context) => CrudBloc()),
-        BlocProvider(create: (context) => DetailBloc()),
+        BlocProvider(
+          create: (context) => CrudBloc(),
+        ),
       ];
 }

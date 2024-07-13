@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:login/routes/name.dart';
 import 'package:login/screen/crud/bloc/crud_bloc.dart';
-import 'package:login/screen/curd_detail/bloc/detail_bloc.dart';
 
 class CRUDPage extends StatelessWidget {
   const CRUDPage({super.key});

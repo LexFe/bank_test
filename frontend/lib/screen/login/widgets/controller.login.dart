@@ -1,12 +1,8 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:login/common/utils/http_utils.dart';
-import 'package:login/common/values/constant.dart';
-import 'package:login/global.dart';
 import 'package:login/routes/name.dart';
-import 'package:login/screen/crud/widgets/controller.crud.dart';
 import 'package:login/screen/login/bloc/login_bloc.dart';
 
 class LoginController {
@@ -41,7 +37,10 @@ class LoginController {
 
         if (res.data["statusCode"] == 200) {
           EasyLoading.dismiss();
-          Navigator.pushNamed(context, AppRoutes.MAINHOME);
+          if (context.mounted) {
+            Navigator.pushNamedAndRemoveUntil(
+                context, AppRoutes.MAINHOME, (route) => false);
+          }
         } else {
           EasyLoading.dismiss();
           EasyLoading.showError("Login failed");
