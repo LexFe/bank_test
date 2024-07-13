@@ -1,0 +1,46 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "docker-build",
+			"label": "docker-build",
+			"platform": "node",
+			"dockerBuild": {
+				"dockerfile": "${workspaceFolder}/node_modules/.pnpm/@ampproject+remapping@2.3.0/node_modules/@ampproject/remapping/Dockerfile",
+				"context": "${workspaceFolder}/node_modules/.pnpm/@ampproject+remapping@2.3.0/node_modules/@ampproject/remapping",
+				"pull": true
+			},
+			"node": {
+				"package": "${workspaceFolder}/node_modules/.pnpm/@ampproject+remapping@2.3.0/node_modules/@ampproject/remapping/package.json"
+			}
+		},
+		{
+			"type": "docker-run",
+			"label": "docker-run: release",
+			"dependsOn": [
+				"docker-build"
+			],
+			"platform": "node",
+			"node": {
+				"package": "${workspaceFolder}/node_modules/.pnpm/@ampproject+remapping@2.3.0/node_modules/@ampproject/remapping/package.json"
+			}
+		},
+		{
+			"type": "docker-run",
+			"label": "docker-run: debug",
+			"dependsOn": [
+				"docker-build"
+			],
+			"dockerRun": {
+				"env": {
+					"DEBUG": "*",
+					"NODE_ENV": "development"
+				}
+			},
+			"node": {
+				"package": "${workspaceFolder}/node_modules/.pnpm/@ampproject+remapping@2.3.0/node_modules/@ampproject/remapping/package.json",
+				"enableDebugging": true
+			}
+		}
+	]
+}

@@ -1,0 +1,1 @@
+enum StatusLoading { init ,loading, loaded, error }
